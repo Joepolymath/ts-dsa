@@ -48,4 +48,14 @@ describe('Stacks with Arrays', () => {
       60,
     ]);
   });
+
+  test('View size of stack: Returns the stack size', () => {
+    const stack = new DataStructure.stackWithArray();
+    stack.push(55);
+    stack.push({
+      name: 'Joepolymath',
+    });
+    stack.push(60);
+    expect(stack.getSize()).toBe(3);
+  });
 });

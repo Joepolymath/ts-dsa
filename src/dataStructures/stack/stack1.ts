@@ -18,7 +18,7 @@ class Stack1 {
     return this.data.pop();
   }
 
-  public length() {
+  public getSize() {
     return this.size;
   }
 
