@@ -10,7 +10,7 @@ class Stack1 {
 
   public push(value: any) {
     this.size++;
-    return this.data.push(value);
+    return this.data.push(value); // returning the new length of the array
   }
 
   public pop() {
