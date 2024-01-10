@@ -13,6 +13,11 @@ describe('Stacks with Arrays', () => {
     expect(stack.push(55)).toBe(1);
   });
 
+  test('Add null to stack: Returns null', () => {
+    const stack = new DataStructure.stackWithArray();
+    expect(stack.push(null)).toBe(null);
+  });
+
   test('Remove last element from stack: Returns the element', () => {
     const stack = new DataStructure.stackWithArray();
     stack.push(55);
@@ -21,6 +26,12 @@ describe('Stacks with Arrays', () => {
     });
     stack.push(60);
     expect(stack.pop()).toBe(60);
+  });
+
+  test('Remove last element from empty stack: Returns null', () => {
+    const stack = new DataStructure.stackWithArray();
+
+    expect(stack.pop()).toBe(null);
   });
 
   test('View last element of stack: Returns the last element', () => {

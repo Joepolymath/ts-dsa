@@ -9,11 +9,17 @@ class Stack1 {
   }
 
   public push(value: any) {
+    if (value == null) {
+      return null;
+    }
     this.size++;
     return this.data.push(value); // returning the new length of the array
   }
 
   public pop() {
+    if (this.isEmpty()) {
+      return null;
+    }
     this.size--;
     return this.data.pop();
   }
