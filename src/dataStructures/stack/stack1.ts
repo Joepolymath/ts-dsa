@@ -1,6 +1,6 @@
 // using array under the hood
-class Stack1 {
-  private data: any[];
+class Stack1<T> {
+  private data: T[];
   private size: number;
 
   constructor() {
@@ -8,7 +8,7 @@ class Stack1 {
     this.size = 0;
   }
 
-  public push(value: any) {
+  public push(value: T) {
     if (value == null) {
       return null;
     }

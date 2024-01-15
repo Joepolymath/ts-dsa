@@ -1,24 +1,24 @@
 // using singly linked list
 
-class StackNode {
-  readonly data: any;
-  next: any | StackNode;
+class StackNode<T> {
+  readonly data: T;
+  next: any | StackNode<T>;
 
-  constructor(value: any) {
+  constructor(value: T) {
     this.data = value;
     this.next = null;
   }
 }
 
-class Stack2 {
-  private head: null | StackNode;
+class Stack2<T> {
+  private head: null | StackNode<T>;
   private size: number;
   constructor() {
     this.head = null;
     this.size = 0;
   }
 
-  push(value: any) {
+  push(value: T) {
     if (value === null) {
       return null;
     }
