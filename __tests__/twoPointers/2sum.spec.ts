@@ -7,4 +7,10 @@ describe('2 pointer technique', () => {
     const target = 7;
     expect(DSA.techniques.twoSum(testArray, target)).toEqual([0, 5]);
   });
+
+  test("2SUM PROBLEM: Returns null if sum is'nt found", () => {
+    const testArray = [1, 2, 3, 4, 5, 6, 7];
+    const target = 589;
+    expect(DSA.techniques.twoSum(testArray, target)).toBe(null);
+  });
 });

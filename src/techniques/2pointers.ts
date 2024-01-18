@@ -14,6 +14,10 @@ function twoSum(array: number[], target: number) {
     if (array[left] + array[right] > target) {
       right--;
     }
+
+    if (left >= right && array[left] + array[right] !== target) {
+      return null;
+    }
   }
 
   return [left, right];
