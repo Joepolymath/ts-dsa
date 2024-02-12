@@ -19,7 +19,7 @@ class BinarySearchTree<T> {
     const newNode = new TreeNode<T>(value);
     if (this.root === null) {
       this.root = newNode;
-      return this;
+      return true;
     }
 
     let current = this.root;
@@ -28,16 +28,56 @@ class BinarySearchTree<T> {
       if (value < current.value) {
         if (current.left === null) {
           current.left = newNode;
-          return this;
+          return true;
         }
         current = current.left;
       } else {
         if (current.right === null) {
           current.right = newNode;
-          return this;
+          return true;
         }
         current = current.right;
       }
     }
   }
+
+  find(value: T) {
+    if (this.root === null) return false;
+    if (this.root.value === value) {
+      return true;
+    }
+    let current: TreeNode<T> | null = this.root,
+      found = false;
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+    if (!found) return null;
+    return current;
+  }
+
+  contains(value: T) {
+    if (this.root === null) {
+      return false;
+    }
+    let current: TreeNode<T> | null = this.root,
+      found = false;
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+    return found;
+  }
 }
+
+export default BinarySearchTree;
