@@ -4,7 +4,13 @@ import { describe, test, expect } from '@jest/globals';
 describe('Binary Search Tree', () => {
   test('Insert to tree: Returns true', () => {
     const tree = new DataStructures.binarySearchTree<number>();
-    expect(tree.insert(5)).toBe(true);
+    tree.insert(5);
+    tree.insert(3);
+    tree.insert(7);
+    tree.insert(2);
+    tree.insert(4);
+    tree.insert(6);
+    expect(tree.insert(8)).toBe(true);
   });
 
   test('Contains a value: Returns true', () => {
