@@ -17,7 +17,6 @@ class BinarySearchTreeRecursion<T> {
 
   insert(value: T, currentNode: TreeNode<T> | null = this.root): boolean {
     const newNode = new TreeNode<T>(value);
-    console.log({ currentNode });
     if (this.root === null) {
       this.root = newNode;
       return true;
@@ -41,42 +40,18 @@ class BinarySearchTreeRecursion<T> {
     }
   }
 
-  find(value: T) {
-    if (this.root === null) return false;
-    if (this.root.value === value) {
-      return true;
-    }
-    let current: TreeNode<T> | null = this.root,
-      found = false;
-    while (current && !found) {
-      if (value < current.value) {
-        current = current.left;
-      } else if (value > current.value) {
-        current = current.right;
-      } else {
-        found = true;
-      }
-    }
-    if (!found) return null;
-    return current;
-  }
-
-  contains(value: T) {
-    if (this.root === null) {
+  contains(value: T, node = this.root): boolean {
+    if (node === null) {
       return false;
     }
-    let current: TreeNode<T> | null = this.root,
-      found = false;
-    while (current && !found) {
-      if (value < current.value) {
-        current = current.left;
-      } else if (value > current.value) {
-        current = current.right;
-      } else {
-        found = true;
-      }
+
+    if (value < node.value) {
+      return this.contains(value, node.left);
+    } else if (value > node.value) {
+      return this.contains(value, node.right);
+    } else {
+      return true;
     }
-    return found;
   }
 }
 
