@@ -15,7 +15,7 @@ class BinarySearchTreeRecursion<T> {
     this.root = null;
   }
 
-  insert(value: T, currentNode: TreeNode<T> | null = this.root) {
+  insert(value: T, currentNode: TreeNode<T> | null = this.root): boolean {
     const newNode = new TreeNode<T>(value);
     console.log({ currentNode });
     if (this.root === null) {
@@ -25,22 +25,19 @@ class BinarySearchTreeRecursion<T> {
     if (!currentNode) {
       return false;
     }
-    if (!currentNode.value) {
-      return false;
-    }
     if (currentNode.value === value) return true;
     if (value < currentNode?.value) {
       if (currentNode.left === null) {
         currentNode.left = newNode;
         return true;
       }
-      this.insert(value, currentNode.left);
+      return this.insert(value, currentNode.left);
     } else {
       if (currentNode.right === null) {
         currentNode.right = newNode;
         return true;
       }
-      this.insert(value, currentNode.right);
+      return this.insert(value, currentNode.right);
     }
   }
 
