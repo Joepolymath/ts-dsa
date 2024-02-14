@@ -28,4 +28,16 @@ describe('Binary Search Tree', () => {
     tree.insert(2);
     expect(tree.contains(15)).toBe(false);
   });
+
+  test('InOrder Traversal: Returns undefined', () => {
+    const tree = new DataStructures.binarySearchTreeWithRecursion<number>();
+    tree.insert(5);
+    tree.insert(12);
+    tree.insert(2);
+    tree.insert(3);
+    tree.insert(7);
+    tree.insert(4);
+    tree.insert(6);
+    expect(tree.inOrderTraversal()).toBe(undefined);
+  });
 });

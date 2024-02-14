@@ -40,7 +40,7 @@ class BinarySearchTreeRecursion<T> {
     }
   }
 
-  contains(value: T, node = this.root): boolean {
+  contains(value: T, node: TreeNode<T> | null = this.root): boolean {
     if (node === null) {
       return false;
     }
@@ -51,6 +51,30 @@ class BinarySearchTreeRecursion<T> {
       return this.contains(value, node.right);
     } else {
       return true;
+    }
+  }
+
+  inOrderTraversal(node: TreeNode<T> | null = this.root) {
+    if (node !== null) {
+      this.inOrderTraversal(node.left);
+      console.log(node.value);
+      this.inOrderTraversal(node.right);
+    }
+  }
+
+  preOrderTraversal(node: TreeNode<T> | null = this.root) {
+    if (node !== null) {
+      console.log(node.value);
+      this.preOrderTraversal(node.left);
+      this.preOrderTraversal(node.right);
+    }
+  }
+
+  postOrderTraversal(node: TreeNode<T> | null = this.root) {
+    if (node !== null) {
+      this.postOrderTraversal(node.left);
+      this.postOrderTraversal(node.right);
+      console.log(node.value);
     }
   }
 }
