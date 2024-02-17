@@ -1,5 +1,9 @@
+// Question: https://leetcode.com/problems/group-anagrams/
 function groupAnagrams(strs: string[]): string[][] {
-  const groupHash: any = {};
+  const groupHash: {
+    [key: string]: string[];
+  } = {};
+
   for (let word of strs) {
     const sortedCharacters = word.split('').sort().join('');
     if (!groupHash[sortedCharacters]) {

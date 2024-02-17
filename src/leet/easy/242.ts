@@ -3,8 +3,12 @@ function isAnagram(s: string, t: string): boolean {
   if (s.length !== t.length) {
     return false;
   }
-  const memory: any = {};
-  const memory2: any = {};
+  const memory: {
+    [key: string]: number;
+  } = {};
+  const memory2: {
+    [key: string]: number;
+  } = {};
 
   for (let element of s) {
     if (memory[element]) {
